@@ -86,6 +86,7 @@ function App() {
           <a href="#cotizador">Cotizar</a>
           <a href="#recibo">Recibo CFE</a>
           <a href="#legal">Aviso y deslinde</a>
+          <a href="#contacto">Contacto</a>
         </nav>
       </header>
 
@@ -469,138 +470,325 @@ function App() {
             <div>
               <h2>Aviso de privacidad, confidencialidad y deslinde</h2>
               <p>
-                Información legal y de seguridad para el tratamiento de datos en Energías
-                Renovables del Norte.
+                Información sobre el tratamiento de datos personales, recibos CFE,
+                confidencialidad de la información y límites de responsabilidad de
+                Energías Renovables del Norte.
               </p>
             </div>
           </div>
 
           <div className="legal-box">
-            <h3>Aviso de privacidad</h3>
+            <div className="legal-intro">
+              <h3>Aviso de privacidad integral</h3>
+              <p>
+                Energías Renovables del Norte, empresa dedicada a la asesoría,
+                cotización e instalación de sistemas de paneles solares, informa que los
+                datos proporcionados por el usuario serán utilizados únicamente para
+                atender solicitudes relacionadas con soluciones de energía solar.
+              </p>
+              <p>
+                Este aviso explica qué información se solicita, para qué se utiliza,
+                quién puede tener acceso, cómo se protege, cómo se puede limitar su uso
+                y cuáles son los alcances de responsabilidad de la empresa.
+              </p>
+            </div>
+
+            <h3>1. Identidad del responsable</h3>
             <p>
-              Energías Renovables del Norte, como empresa dedicada a la asesoría,
-              cotización e instalación de sistemas de paneles solares, informa que los
-              datos proporcionados por el usuario serán utilizados para atender solicitudes
-              de cotización, analizar consumo eléctrico, preparar propuestas comerciales,
-              contactar al solicitante y dar seguimiento al proyecto.
+              El responsable del tratamiento de los datos personales es Energías
+              Renovables del Norte. Para efectos de esta aplicación académica, la empresa
+              representa un negocio del sector empresarial dedicado a brindar servicios
+              de cotización, análisis energético e instalación de paneles solares para
+              clientes residenciales, comerciales, empresariales e industriales.
             </p>
 
+            <h3>2. Datos personales que pueden solicitarse</h3>
             <p>
-              Los datos que podrían recabarse incluyen nombre, teléfono, correo
-              electrónico, ciudad, dirección aproximada, tipo de cliente, consumo mensual,
-              tarifa eléctrica, comentarios del proyecto y documentos relacionados con el
-              servicio eléctrico, como el recibo de luz CFE.
+              Para elaborar una cotización solar, la empresa puede solicitar datos de
+              identificación y contacto como nombre completo, teléfono, correo
+              electrónico, ciudad, zona de instalación, dirección aproximada, tipo de
+              cliente y comentarios relacionados con el proyecto.
+            </p>
+            <p>
+              También puede solicitar información energética como consumo mensual en kWh,
+              tarifa eléctrica, tipo de servicio, historial de consumo y recibo de luz
+              CFE en formato PDF, PNG o JPG. En caso de contratación real, podrían
+              solicitarse datos fiscales como razón social, RFC, domicilio fiscal y datos
+              necesarios para facturación.
             </p>
 
+            <h3>3. Información contenida en el recibo CFE</h3>
             <p>
-              En caso de avanzar a una contratación real, también podrían solicitarse datos
-              fiscales como razón social, RFC, domicilio fiscal, información de facturación
-              y documentación administrativa necesaria para la prestación del servicio.
+              El recibo de luz CFE puede contener información relevante para dimensionar
+              un sistema solar, pero también puede incluir datos personales o
+              patrimoniales. Entre ellos pueden encontrarse el nombre del titular,
+              domicilio del servicio, número de servicio, número de medidor, tarifa,
+              periodo facturado, consumo histórico, importes de pago y referencias del
+              contrato eléctrico.
+            </p>
+            <p>
+              Por esta razón, el recibo debe tratarse como documento confidencial. Su uso
+              debe limitarse al análisis de consumo eléctrico y a la elaboración de una
+              propuesta técnica o comercial relacionada con paneles solares.
             </p>
 
-            <h3>Finalidades del tratamiento</h3>
+            <h3>4. Finalidades principales del tratamiento</h3>
             <p>
-              Los datos personales se utilizarían para elaborar una cotización preliminar,
-              dimensionar el sistema fotovoltaico, estimar número de paneles solares,
-              calcular generación aproximada, programar visitas técnicas, preparar una
-              propuesta formal, contactar al cliente y dar seguimiento administrativo o
-              comercial.
+              Los datos personales y energéticos se utilizarán para atender la solicitud
+              del cliente, analizar su consumo eléctrico, estimar la capacidad del
+              sistema fotovoltaico, calcular una cantidad aproximada de paneles solares,
+              preparar una cotización preliminar, contactar al solicitante, resolver
+              dudas, programar una visita técnica y dar seguimiento administrativo o
+              comercial al proyecto.
+            </p>
+            <p>
+              En caso de que el cliente decida continuar con el proceso, la información
+              también podría utilizarse para preparar una propuesta formal, generar
+              documentación de instalación, coordinar personal técnico, revisar
+              condiciones del inmueble y emitir documentos fiscales relacionados con la
+              contratación.
             </p>
 
-            <h3>Uso del recibo CFE</h3>
+            <h3>5. Finalidades secundarias</h3>
             <p>
-              El recibo CFE puede ser utilizado para revisar tarifa, historial de consumo,
-              importe del servicio, número de servicio, domicilio de instalación y datos
-              del titular. Esta información es necesaria para realizar un análisis más
-              preciso del proyecto solar, pero debe manejarse con confidencialidad.
+              La empresa podría utilizar datos de contacto para enviar información sobre
+              promociones, mantenimiento, seguimiento de satisfacción, recomendaciones de
+              ahorro energético o nuevos servicios relacionados con energías renovables.
+              Estas finalidades no son indispensables para elaborar una cotización, por
+              lo que el titular puede solicitar que no se utilicen sus datos para dichos
+              fines.
             </p>
 
-            <h3>Confidencialidad de la información</h3>
+            <h3>6. Confidencialidad de la información</h3>
             <p>
-              La información proporcionada por el cliente será considerada confidencial. No
-              deberá compartirse, venderse, publicarse, modificarse o utilizarse para
-              finalidades distintas a la cotización sin autorización del titular o sin una
-              causa legal aplicable.
+              Toda la información proporcionada por el cliente será considerada
+              confidencial cuando revele datos personales, domicilio, consumo eléctrico,
+              información fiscal, capacidad de pago, condiciones del inmueble o detalles
+              del proyecto. La empresa no deberá vender, publicar, divulgar, compartir o
+              utilizar esta información para fines ajenos a la cotización sin
+              autorización del titular o sin una causa legal aplicable.
             </p>
-
             <p>
-              El acceso deberá limitarse únicamente a personal autorizado, como asesores
-              comerciales, técnicos de instalación, personal administrativo, facturación o
-              dirección. Cada persona deberá acceder solo a la información necesaria para
-              cumplir su función.
+              El acceso a los datos debe limitarse al personal autorizado y únicamente
+              cuando sea necesario para cumplir sus funciones. Esto incluye asesores
+              comerciales, personal técnico, área administrativa, facturación, dirección o
+              proveedores que participen directamente en el proyecto.
             </p>
 
             <div className="mini-grid">
               <article>
                 <h3>Medidas administrativas</h3>
                 <p>
-                  Políticas internas, capacitación, acuerdos de confidencialidad,
-                  autorización de accesos y procedimientos para atender solicitudes de los
-                  titulares.
+                  Políticas internas, capacitación del personal, acuerdos de
+                  confidencialidad, asignación de responsables, autorización de accesos y
+                  procedimientos para atender solicitudes de clientes.
                 </p>
               </article>
 
               <article>
                 <h3>Medidas técnicas</h3>
                 <p>
-                  Contraseñas seguras, cifrado, permisos por rol, respaldos, antivirus,
-                  bitácoras de acceso y protección contra accesos no autorizados.
+                  Contraseñas seguras, permisos por rol, cifrado, respaldos, bitácoras
+                  de acceso, antivirus, control de sesiones y protección contra accesos
+                  no autorizados.
                 </p>
               </article>
 
               <article>
                 <h3>Medidas físicas</h3>
                 <p>
-                  Resguardo de documentos, control de acceso a oficinas, protección de
-                  equipos, almacenamiento bajo llave y destrucción segura de información.
+                  Resguardo de documentos impresos, control de acceso a oficinas,
+                  protección de equipos, almacenamiento bajo llave y destrucción segura
+                  de expedientes.
                 </p>
               </article>
             </div>
 
-            <h3>Derechos del titular</h3>
+            <h3>7. Transferencias de información</h3>
             <p>
-              El titular de los datos podrá solicitar acceso, rectificación, cancelación u
-              oposición respecto al tratamiento de su información personal. En un entorno
-              real, la empresa debe proporcionar medios claros para ejercer estos derechos,
-              como correo electrónico, oficina de atención o formulario oficial.
+              La información del cliente solo podrá compartirse cuando sea necesario para
+              cumplir con la finalidad del servicio. Por ejemplo, con asesores técnicos,
+              instaladores, personal administrativo, proveedores autorizados, área de
+              facturación, entidades de financiamiento o autoridades competentes cuando
+              exista obligación legal.
+            </p>
+            <p>
+              En caso de transferir información a terceros relacionados con el proyecto,
+              estos deberán utilizar los datos únicamente para la finalidad autorizada y
+              mantener medidas de confidencialidad equivalentes.
             </p>
 
-            <h3>Transferencias de información</h3>
+            <h3>8. Conservación y eliminación de datos</h3>
             <p>
-              La información solo podría compartirse con terceros cuando sea necesario para
-              atender la solicitud del cliente, por ejemplo, proveedores autorizados,
-              técnicos de instalación, áreas de facturación, entidades de financiamiento o
-              autoridades competentes, siempre bajo medidas de confidencialidad.
+              En un proceso real, los datos deberán conservarse únicamente durante el
+              tiempo necesario para atender la cotización, cumplir obligaciones legales,
+              mantener evidencia administrativa o dar seguimiento autorizado por el
+              cliente. Una vez cumplida la finalidad, la información deberá eliminarse,
+              bloquearse o resguardarse conforme a las políticas internas aplicables.
             </p>
 
-            <h3>Deslinde de responsabilidad</h3>
+            <h3>9. Derechos ARCO</h3>
             <p>
-              Esta aplicación es una demostración académica. No representa una contratación
-              real, no almacena información, no procesa archivos y no genera una oferta
-              comercial vinculante. La cotización mostrada es aproximada y debe validarse
-              mediante revisión técnica profesional.
+              El titular puede solicitar acceso a sus datos personales, rectificación
+              cuando sean incorrectos o estén desactualizados, cancelación cuando ya no
+              sean necesarios u oposición al tratamiento para ciertas finalidades. Estos
+              derechos se conocen como derechos ARCO.
+            </p>
+            <p>
+              Para ejercerlos en un entorno real, el titular podría comunicarse al correo
+              de atención de privacidad de la empresa, presentando su nombre, medio de
+              contacto, descripción clara de la solicitud y documento que acredite su
+              identidad o representación legal cuando corresponda.
             </p>
 
+            <h3>10. Revocación del consentimiento</h3>
             <p>
-              El usuario es responsable de proporcionar información correcta en un proceso
-              real y de contar con autorización para compartir recibos de luz o documentos
-              relacionados con el inmueble. En esta demo no se deben ingresar datos
-              personales reales ni subir documentos verdaderos.
+              El titular puede solicitar que se deje de utilizar su información para
+              finalidades no indispensables, como promociones o seguimiento comercial
+              adicional. La revocación no afecta tratamientos necesarios para cumplir
+              obligaciones legales, administrativas o contractuales ya iniciadas.
             </p>
 
+            <h3>11. Seguridad en la carga de archivos</h3>
             <p>
-              Energías Renovables del Norte no será responsable por decisiones económicas,
-              comerciales o técnicas tomadas con base en los resultados simulados de esta
-              aplicación. Para una cotización formal se requiere revisión técnica,
-              condiciones de instalación, tarifa eléctrica, ubicación exacta, materiales,
-              permisos y evaluación especializada.
+              El apartado para subir recibo CFE dentro de esta aplicación es una
+              simulación. En esta demo, el archivo no se procesa, no se almacena, no se
+              envía a servidores y no se comparte con terceros. Solo se muestra el nombre
+              del archivo seleccionado para representar el flujo de una aplicación
+              empresarial.
             </p>
+            <p>
+              En una implementación real, la empresa debería aplicar validación de tipo
+              de archivo, límite de tamaño, almacenamiento seguro, cifrado, control de
+              accesos, eliminación programada y revisión contra archivos maliciosos.
+            </p>
+
+            <h3>12. Deslinde de responsabilidad</h3>
+            <p>
+              La cotización generada por esta aplicación es preliminar y demostrativa. No
+              representa una oferta comercial definitiva, no garantiza ahorro específico
+              y no sustituye una evaluación técnica profesional.
+            </p>
+            <p>
+              Para una propuesta formal se requiere revisar el recibo CFE completo,
+              historial de consumo, tarifa aplicable, ubicación exacta, orientación del
+              techo, sombras, estructura, materiales, permisos, condiciones eléctricas,
+              costos vigentes y disponibilidad de equipo.
+            </p>
+            <p>
+              Energías Renovables del Norte no será responsable por decisiones
+              económicas, comerciales o técnicas tomadas únicamente con base en el
+              resultado simulado de esta aplicación.
+            </p>
+
+            <h3>13. Responsabilidad del usuario</h3>
+            <p>
+              En un proceso real, el usuario declara que la información proporcionada es
+              correcta y que cuenta con autorización para compartir el recibo de luz o
+              documentos relacionados con el inmueble. En esta versión académica, se
+              recomienda no ingresar datos personales reales ni cargar documentos
+              verdaderos.
+            </p>
+
+            <h3>14. Cambios al aviso de privacidad</h3>
+            <p>
+              La empresa podrá modificar este aviso de privacidad cuando existan cambios
+              en sus procesos, servicios, obligaciones legales o medidas de seguridad.
+              Cualquier cambio relevante deberá comunicarse por medios visibles, como el
+              sitio web oficial, correo electrónico o aviso directo al cliente.
+            </p>
+          </div>
+        </section>
+
+        <section id="contacto" className="section">
+          <div className="section-header">
+            <span className="section-number">05</span>
+            <div>
+              <h2>Contacto</h2>
+              <p>
+                Área de atención para solicitudes de cotización, seguimiento de proyectos
+                solares y dudas sobre privacidad de la información.
+              </p>
+            </div>
+          </div>
+
+          <div className="contact-grid">
+            <div className="contact-card">
+              <h3>Energías Renovables del Norte</h3>
+              <p>
+                Empresa dedicada a la asesoría, cotización e instalación de sistemas de
+                paneles solares para hogares, negocios y empresas.
+              </p>
+
+              <div className="contact-list">
+                <p>
+                  <strong>Teléfono:</strong> 614 000 0000
+                </p>
+                <p>
+                  <strong>Correo comercial:</strong> cotizaciones@ern-demo.com
+                </p>
+                <p>
+                  <strong>Correo de privacidad:</strong> privacidad@ern-demo.com
+                </p>
+                <p>
+                  <strong>Horario de atención:</strong> Lunes a viernes, 9:00 a.m. a
+                  6:00 p.m.
+                </p>
+                <p>
+                  <strong>Zona de servicio:</strong> Chihuahua y municipios cercanos.
+                </p>
+              </div>
+
+              <div className="contact-note">
+                Los datos de contacto son demostrativos y forman parte de la simulación
+                académica de la empresa.
+              </div>
+            </div>
+
+            <form className="contact-form">
+              <h3>Solicitar información</h3>
+
+              <label>
+                Nombre
+                <input type="text" placeholder="Nombre del solicitante" />
+              </label>
+
+              <label>
+                Correo electrónico
+                <input type="email" placeholder="correo@ejemplo.com" />
+              </label>
+
+              <label>
+                Motivo de contacto
+                <select>
+                  <option>Cotización de paneles solares</option>
+                  <option>Seguimiento de solicitud</option>
+                  <option>Duda sobre aviso de privacidad</option>
+                  <option>Ejercicio de derechos ARCO</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label>
+                Mensaje
+                <textarea placeholder="Escribe tu mensaje"></textarea>
+              </label>
+
+              <button type="button">Enviar mensaje demo</button>
+
+              <p>
+                Este formulario es demostrativo. No almacena ni envía información real.
+              </p>
+            </form>
           </div>
         </section>
       </main>
 
       <footer className="footer">
-        <p>Energías Renovables del Norte · Cotización solar y manejo responsable de información</p>
+        <p>
+          Energías Renovables del Norte · Cotización solar y manejo responsable de
+          información
+        </p>
       </footer>
     </div>
   );
