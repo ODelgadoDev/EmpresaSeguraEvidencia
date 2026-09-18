@@ -19,6 +19,12 @@ function App() {
 
   const [resultado, setResultado] = useState(null);
 
+  const fechaPublicacion = '17 de septiembre de 2026';
+  const fechaActualizacion = '17 de septiembre de 2026';
+  const versionPoliticas = '1.0';
+  const vigenciaPoliticas =
+    'Vigente hasta que Energías Renovables del Norte publique una nueva versión o actualice sus procesos de tratamiento de datos.';
+
   const handleChange = (event) => {
     const { name, value, type, checked, files } = event.target;
 
@@ -85,7 +91,7 @@ function App() {
           <a href="#servicios">Servicios</a>
           <a href="#cotizador">Cotizar</a>
           <a href="#recibo">Recibo CFE</a>
-          <a href="#legal">Aviso y deslinde</a>
+          <a href="#legal">Aviso y políticas</a>
           <a href="#contacto">Contacto</a>
         </nav>
       </header>
@@ -369,7 +375,7 @@ function App() {
               </button>
 
               <a href="#legal" className="legal-link">
-                Consultar aviso de privacidad, confidencialidad y deslinde
+                Consultar aviso de privacidad, políticas de servicio y deslinde
               </a>
             </form>
 
@@ -468,128 +474,200 @@ function App() {
           <div className="section-header">
             <span className="section-number">04</span>
             <div>
-              <h2>Aviso de privacidad, confidencialidad y deslinde</h2>
+              <h2>Aviso de privacidad, políticas de servicio y deslinde</h2>
               <p>
-                Información sobre el tratamiento de datos personales, recibos CFE,
-                confidencialidad de la información y límites de responsabilidad de
-                Energías Renovables del Norte.
+                Condiciones aplicables al uso del cotizador solar, tratamiento de datos,
+                carga de recibos CFE, confidencialidad y responsabilidad del usuario.
               </p>
             </div>
           </div>
 
           <div className="legal-box">
+            <div className="policy-meta">
+              <div>
+                <strong>Fecha de publicación:</strong>
+                <span>{fechaPublicacion}</span>
+              </div>
+
+              <div>
+                <strong>Última actualización:</strong>
+                <span>{fechaActualizacion}</span>
+              </div>
+
+              <div>
+                <strong>Versión:</strong>
+                <span>{versionPoliticas}</span>
+              </div>
+
+              <div>
+                <strong>Vigencia:</strong>
+                <span>{vigenciaPoliticas}</span>
+              </div>
+            </div>
+
             <div className="legal-intro">
-              <h3>Aviso de privacidad integral</h3>
+              <h3>Aviso integral de Energías Renovables del Norte</h3>
               <p>
-                Energías Renovables del Norte, empresa dedicada a la asesoría,
-                cotización e instalación de sistemas de paneles solares, informa que los
-                datos proporcionados por el usuario serán utilizados únicamente para
-                atender solicitudes relacionadas con soluciones de energía solar.
+                Energías Renovables del Norte pone a disposición del usuario el presente
+                aviso integral para informar cómo serán tratados los datos personales,
+                datos de contacto, información energética y documentos proporcionados
+                durante el proceso de solicitud de cotización de paneles solares.
               </p>
               <p>
-                Este aviso explica qué información se solicita, para qué se utiliza,
-                quién puede tener acceso, cómo se protege, cómo se puede limitar su uso
-                y cuáles son los alcances de responsabilidad de la empresa.
+                Al utilizar el formulario de cotización, cargar un recibo CFE o enviar
+                información de contacto, el usuario reconoce que la información será
+                utilizada para analizar su solicitud, preparar una propuesta preliminar y
+                dar seguimiento al servicio solicitado.
               </p>
             </div>
 
-            <h3>1. Identidad del responsable</h3>
+            <h3>1. Identidad y domicilio del responsable</h3>
             <p>
-              El responsable del tratamiento de los datos personales es Energías
-              Renovables del Norte. Para efectos de esta aplicación académica, la empresa
-              representa un negocio del sector empresarial dedicado a brindar servicios
-              de cotización, análisis energético e instalación de paneles solares para
-              clientes residenciales, comerciales, empresariales e industriales.
+              Para efectos de esta aplicación, Energías Renovables del Norte actúa como
+              responsable del tratamiento de los datos personales proporcionados por el
+              usuario. La empresa se dedica a la asesoría, cotización e instalación de
+              sistemas de paneles solares para clientes residenciales, comerciales,
+              empresariales e industriales.
+            </p>
+            <p>
+              Domicilio demostrativo: Chihuahua, Chihuahua, México. Correo de atención
+              comercial: cotizaciones@ern-demo.com. Correo para asuntos de privacidad:
+              privacidad@ern-demo.com.
             </p>
 
-            <h3>2. Datos personales que pueden solicitarse</h3>
+            <h3>2. Alcance de estas políticas</h3>
             <p>
-              Para elaborar una cotización solar, la empresa puede solicitar datos de
-              identificación y contacto como nombre completo, teléfono, correo
-              electrónico, ciudad, zona de instalación, dirección aproximada, tipo de
-              cliente y comentarios relacionados con el proyecto.
+              Estas políticas aplican al uso del sitio web, formulario de cotización,
+              apartado de carga de recibo CFE, formulario de contacto y cualquier
+              comunicación relacionada con la solicitud de sistemas solares realizada a
+              través de esta aplicación.
             </p>
             <p>
-              También puede solicitar información energética como consumo mensual en kWh,
-              tarifa eléctrica, tipo de servicio, historial de consumo y recibo de luz
-              CFE en formato PDF, PNG o JPG. En caso de contratación real, podrían
-              solicitarse datos fiscales como razón social, RFC, domicilio fiscal y datos
-              necesarios para facturación.
+              No aplican a sitios externos, proveedores no autorizados, redes sociales,
+              plataformas de terceros o comunicaciones ajenas a Energías Renovables del
+              Norte.
             </p>
 
-            <h3>3. Información contenida en el recibo CFE</h3>
+            <h3>3. Datos que Energías Renovables del Norte puede solicitar</h3>
             <p>
-              El recibo de luz CFE puede contener información relevante para dimensionar
-              un sistema solar, pero también puede incluir datos personales o
-              patrimoniales. Entre ellos pueden encontrarse el nombre del titular,
-              domicilio del servicio, número de servicio, número de medidor, tarifa,
-              periodo facturado, consumo histórico, importes de pago y referencias del
-              contrato eléctrico.
+              Para procesar una solicitud de cotización, Energías Renovables del Norte
+              puede solicitar nombre completo, teléfono, correo electrónico, ciudad, zona
+              de instalación, dirección aproximada, tipo de cliente, consumo mensual en
+              kWh, tarifa eléctrica, comentarios del proyecto y archivo del recibo CFE.
             </p>
             <p>
-              Por esta razón, el recibo debe tratarse como documento confidencial. Su uso
-              debe limitarse al análisis de consumo eléctrico y a la elaboración de una
-              propuesta técnica o comercial relacionada con paneles solares.
-            </p>
-
-            <h3>4. Finalidades principales del tratamiento</h3>
-            <p>
-              Los datos personales y energéticos se utilizarán para atender la solicitud
-              del cliente, analizar su consumo eléctrico, estimar la capacidad del
-              sistema fotovoltaico, calcular una cantidad aproximada de paneles solares,
-              preparar una cotización preliminar, contactar al solicitante, resolver
-              dudas, programar una visita técnica y dar seguimiento administrativo o
-              comercial al proyecto.
-            </p>
-            <p>
-              En caso de que el cliente decida continuar con el proceso, la información
-              también podría utilizarse para preparar una propuesta formal, generar
-              documentación de instalación, coordinar personal técnico, revisar
-              condiciones del inmueble y emitir documentos fiscales relacionados con la
-              contratación.
+              Si el usuario decide avanzar a una contratación real, la empresa podría
+              solicitar datos adicionales como razón social, RFC, domicilio fiscal,
+              constancia de situación fiscal, datos de facturación, identificación del
+              representante, información de pago y documentos relacionados con la
+              instalación.
             </p>
 
-            <h3>5. Finalidades secundarias</h3>
+            <h3>4. Uso específico del recibo CFE</h3>
             <p>
-              La empresa podría utilizar datos de contacto para enviar información sobre
-              promociones, mantenimiento, seguimiento de satisfacción, recomendaciones de
-              ahorro energético o nuevos servicios relacionados con energías renovables.
-              Estas finalidades no son indispensables para elaborar una cotización, por
-              lo que el titular puede solicitar que no se utilicen sus datos para dichos
-              fines.
+              El recibo CFE será utilizado únicamente para revisar información necesaria
+              para dimensionar el proyecto solar: tarifa, consumo histórico, periodo de
+              facturación, importe aproximado del servicio, número de servicio, domicilio
+              del suministro y datos asociados al contrato eléctrico.
+            </p>
+            <p>
+              Esta información permite estimar la capacidad del sistema fotovoltaico,
+              calcular una cantidad aproximada de paneles solares, identificar el tipo de
+              servicio eléctrico y preparar una propuesta técnica o comercial más
+              adecuada.
+            </p>
+            <p>
+              El recibo CFE no será utilizado para finalidades ajenas a la cotización, no
+              será publicado, no será vendido y no será compartido con terceros no
+              relacionados con el proyecto.
             </p>
 
-            <h3>6. Confidencialidad de la información</h3>
+            <h3>5. Finalidades principales del tratamiento</h3>
             <p>
-              Toda la información proporcionada por el cliente será considerada
-              confidencial cuando revele datos personales, domicilio, consumo eléctrico,
-              información fiscal, capacidad de pago, condiciones del inmueble o detalles
-              del proyecto. La empresa no deberá vender, publicar, divulgar, compartir o
-              utilizar esta información para fines ajenos a la cotización sin
-              autorización del titular o sin una causa legal aplicable.
+              Energías Renovables del Norte utilizará los datos del usuario para atender
+              la solicitud de cotización, analizar consumo eléctrico, preparar una
+              estimación preliminar, contactar al solicitante, resolver dudas, validar
+              datos del proyecto, programar visitas técnicas y dar seguimiento comercial
+              o administrativo.
             </p>
             <p>
-              El acceso a los datos debe limitarse al personal autorizado y únicamente
-              cuando sea necesario para cumplir sus funciones. Esto incluye asesores
-              comerciales, personal técnico, área administrativa, facturación, dirección o
-              proveedores que participen directamente en el proyecto.
+              En caso de contratación, los datos podrán utilizarse para preparar
+              documentación técnica, coordinar instalación, generar órdenes de trabajo,
+              emitir facturas, administrar pagos, gestionar garantías y conservar
+              evidencia relacionada con el servicio contratado.
+            </p>
+
+            <h3>6. Finalidades secundarias</h3>
+            <p>
+              Energías Renovables del Norte podrá utilizar datos de contacto para enviar
+              promociones, recordatorios de mantenimiento, encuestas de satisfacción,
+              recomendaciones de ahorro energético o información sobre nuevos servicios
+              solares.
+            </p>
+            <p>
+              Estas finalidades secundarias no son necesarias para elaborar la cotización.
+              El usuario puede solicitar que sus datos no sean utilizados para promociones
+              o comunicaciones comerciales adicionales escribiendo al correo
+              privacidad@ern-demo.com.
+            </p>
+
+            <h3>7. Base de consentimiento del usuario</h3>
+            <p>
+              Al marcar las casillas del formulario, el usuario manifiesta que conoce el
+              aviso de privacidad, que autoriza el uso de sus datos para elaborar una
+              cotización y que comprende que el recibo CFE puede contener información
+              personal, domiciliaria, patrimonial y de consumo eléctrico.
+            </p>
+            <p>
+              En un proceso real, si el usuario comparte documentación de una propiedad,
+              empresa o servicio eléctrico que no esté a su nombre, declara contar con
+              autorización suficiente para proporcionar esa información.
+            </p>
+
+            <h3>8. Confidencialidad de la información</h3>
+            <p>
+              Energías Renovables del Norte tratará como confidencial toda información
+              proporcionada por el usuario, especialmente aquella que revele domicilio,
+              consumo eléctrico, importes de pago, datos fiscales, datos de contacto,
+              condiciones del inmueble, capacidad de consumo o información comercial.
+            </p>
+            <p>
+              La empresa no venderá, publicará, divulgará ni utilizará los datos del
+              usuario para finalidades distintas a las autorizadas, salvo obligación
+              legal, requerimiento de autoridad competente o autorización expresa del
+              titular.
+            </p>
+
+            <h3>9. Personal autorizado para acceder a la información</h3>
+            <p>
+              El acceso a la información estará limitado a personal que participe en la
+              solicitud del cliente, como asesores comerciales, personal técnico,
+              instaladores, administración, facturación, dirección y proveedores
+              autorizados que intervengan directamente en el proyecto.
+            </p>
+            <p>
+              Cada persona deberá acceder únicamente a la información necesaria para
+              cumplir sus funciones. Por ejemplo, un asesor comercial puede revisar datos
+              de contacto y consumo; un técnico puede revisar ubicación y condiciones de
+              instalación; facturación puede revisar datos fiscales únicamente si el
+              cliente avanza a contratación.
             </p>
 
             <div className="mini-grid">
               <article>
                 <h3>Medidas administrativas</h3>
                 <p>
-                  Políticas internas, capacitación del personal, acuerdos de
+                  Políticas internas de privacidad, capacitación del personal, acuerdos de
                   confidencialidad, asignación de responsables, autorización de accesos y
-                  procedimientos para atender solicitudes de clientes.
+                  procedimientos para responder solicitudes de los clientes.
                 </p>
               </article>
 
               <article>
                 <h3>Medidas técnicas</h3>
                 <p>
-                  Contraseñas seguras, permisos por rol, cifrado, respaldos, bitácoras
-                  de acceso, antivirus, control de sesiones y protección contra accesos
+                  Control de contraseñas, permisos por rol, cifrado, respaldos, bitácoras
+                  de acceso, antivirus, validación de archivos y protección contra accesos
                   no autorizados.
                 </p>
               </article>
@@ -598,104 +676,161 @@ function App() {
                 <h3>Medidas físicas</h3>
                 <p>
                   Resguardo de documentos impresos, control de acceso a oficinas,
-                  protección de equipos, almacenamiento bajo llave y destrucción segura
-                  de expedientes.
+                  protección de equipos, almacenamiento bajo llave y destrucción segura de
+                  expedientes.
                 </p>
               </article>
             </div>
 
-            <h3>7. Transferencias de información</h3>
+            <h3>10. Política de carga de archivos</h3>
             <p>
-              La información del cliente solo podrá compartirse cuando sea necesario para
-              cumplir con la finalidad del servicio. Por ejemplo, con asesores técnicos,
-              instaladores, personal administrativo, proveedores autorizados, área de
-              facturación, entidades de financiamiento o autoridades competentes cuando
-              exista obligación legal.
+              Energías Renovables del Norte solo solicitará archivos relacionados con la
+              cotización solar, principalmente recibos CFE en PDF, PNG o JPG. La empresa
+              no solicitará contraseñas, claves bancarias, fotografías innecesarias,
+              documentos personales no relacionados o información ajena al proyecto.
             </p>
             <p>
-              En caso de transferir información a terceros relacionados con el proyecto,
-              estos deberán utilizar los datos únicamente para la finalidad autorizada y
-              mantener medidas de confidencialidad equivalentes.
+              En una implementación real, los archivos cargados serían revisados mediante
+              controles de seguridad, límite de tamaño, validación de extensión, revisión
+              contra archivos maliciosos, almacenamiento restringido y eliminación cuando
+              ya no sean necesarios.
             </p>
-
-            <h3>8. Conservación y eliminación de datos</h3>
             <p>
-              En un proceso real, los datos deberán conservarse únicamente durante el
-              tiempo necesario para atender la cotización, cumplir obligaciones legales,
-              mantener evidencia administrativa o dar seguimiento autorizado por el
-              cliente. Una vez cumplida la finalidad, la información deberá eliminarse,
-              bloquearse o resguardarse conforme a las políticas internas aplicables.
+              En esta aplicación académica, el archivo seleccionado no se sube, no se
+              procesa, no se almacena y no se envía a servidores. Solo se muestra el
+              nombre del archivo para simular el flujo de carga.
             </p>
 
-            <h3>9. Derechos ARCO</h3>
+            <h3>11. Política de seguridad y ciberseguridad</h3>
             <p>
-              El titular puede solicitar acceso a sus datos personales, rectificación
-              cuando sean incorrectos o estén desactualizados, cancelación cuando ya no
-              sean necesarios u oposición al tratamiento para ciertas finalidades. Estos
-              derechos se conocen como derechos ARCO.
+              Energías Renovables del Norte aplicará controles razonables para proteger
+              la información contra pérdida, alteración, acceso no autorizado, uso
+              indebido, divulgación o destrucción. Estos controles incluyen autenticación,
+              permisos por rol, respaldo de información, cifrado cuando sea aplicable y
+              revisión de accesos.
             </p>
             <p>
-              Para ejercerlos en un entorno real, el titular podría comunicarse al correo
-              de atención de privacidad de la empresa, presentando su nombre, medio de
-              contacto, descripción clara de la solicitud y documento que acredite su
-              identidad o representación legal cuando corresponda.
+              La empresa no enviará solicitudes de datos sensibles por medios inseguros,
+              no pedirá contraseñas del usuario y no solicitará pagos mediante enlaces
+              sospechosos. Cualquier comunicación oficial deberá provenir de los canales
+              de contacto publicados por la empresa.
             </p>
-
-            <h3>10. Revocación del consentimiento</h3>
             <p>
-              El titular puede solicitar que se deje de utilizar su información para
-              finalidades no indispensables, como promociones o seguimiento comercial
-              adicional. La revocación no afecta tratamientos necesarios para cumplir
-              obligaciones legales, administrativas o contractuales ya iniciadas.
+              El usuario también debe proteger su información, evitando cargar documentos
+              innecesarios, compartir archivos en equipos públicos o enviar recibos CFE a
+              personas no autorizadas.
             </p>
 
-            <h3>11. Seguridad en la carga de archivos</h3>
+            <h3>12. Transferencias de información</h3>
             <p>
-              El apartado para subir recibo CFE dentro de esta aplicación es una
-              simulación. En esta demo, el archivo no se procesa, no se almacena, no se
-              envía a servidores y no se comparte con terceros. Solo se muestra el nombre
-              del archivo seleccionado para representar el flujo de una aplicación
-              empresarial.
+              La información del usuario podrá compartirse únicamente cuando sea necesario
+              para cumplir con el servicio solicitado. Esto puede incluir asesores
+              técnicos, instaladores, proveedores autorizados, área de facturación,
+              instituciones de financiamiento o autoridades competentes cuando exista
+              obligación legal.
             </p>
             <p>
-              En una implementación real, la empresa debería aplicar validación de tipo
-              de archivo, límite de tamaño, almacenamiento seguro, cifrado, control de
-              accesos, eliminación programada y revisión contra archivos maliciosos.
-            </p>
-
-            <h3>12. Deslinde de responsabilidad</h3>
-            <p>
-              La cotización generada por esta aplicación es preliminar y demostrativa. No
-              representa una oferta comercial definitiva, no garantiza ahorro específico
-              y no sustituye una evaluación técnica profesional.
-            </p>
-            <p>
-              Para una propuesta formal se requiere revisar el recibo CFE completo,
-              historial de consumo, tarifa aplicable, ubicación exacta, orientación del
-              techo, sombras, estructura, materiales, permisos, condiciones eléctricas,
-              costos vigentes y disponibilidad de equipo.
-            </p>
-            <p>
-              Energías Renovables del Norte no será responsable por decisiones
-              económicas, comerciales o técnicas tomadas únicamente con base en el
-              resultado simulado de esta aplicación.
+              Los terceros que participen en el proyecto deberán utilizar la información
+              únicamente para la finalidad autorizada y mantener medidas de
+              confidencialidad compatibles con estas políticas.
             </p>
 
-            <h3>13. Responsabilidad del usuario</h3>
+            <h3>13. Conservación de información</h3>
             <p>
-              En un proceso real, el usuario declara que la información proporcionada es
-              correcta y que cuenta con autorización para compartir el recibo de luz o
-              documentos relacionados con el inmueble. En esta versión académica, se
-              recomienda no ingresar datos personales reales ni cargar documentos
-              verdaderos.
+              La información de solicitudes no contratadas se conservará únicamente por el
+              tiempo necesario para atender la cotización y el seguimiento comercial
+              autorizado. La información de clientes contratados podrá conservarse por el
+              tiempo necesario para cumplir obligaciones fiscales, administrativas,
+              contractuales, de garantía o de soporte técnico.
+            </p>
+            <p>
+              Cuando la información ya no sea necesaria, Energías Renovables del Norte
+              deberá eliminarla, bloquearla o resguardarla conforme a sus políticas
+              internas y obligaciones aplicables.
             </p>
 
-            <h3>14. Cambios al aviso de privacidad</h3>
+            <h3>14. Derechos ARCO</h3>
             <p>
-              La empresa podrá modificar este aviso de privacidad cuando existan cambios
-              en sus procesos, servicios, obligaciones legales o medidas de seguridad.
-              Cualquier cambio relevante deberá comunicarse por medios visibles, como el
-              sitio web oficial, correo electrónico o aviso directo al cliente.
+              El usuario podrá solicitar acceso a sus datos personales, rectificación si
+              son incorrectos, cancelación cuando ya no sean necesarios u oposición al
+              tratamiento para finalidades no indispensables.
+            </p>
+            <p>
+              Para ejercer estos derechos, el usuario podrá enviar una solicitud al correo
+              privacidad@ern-demo.com indicando nombre completo, medio de contacto, derecho
+              que desea ejercer, descripción de la solicitud y, en un caso real, documento
+              que acredite identidad o representación legal.
+            </p>
+
+            <h3>15. Revocación del consentimiento</h3>
+            <p>
+              El usuario puede solicitar que sus datos dejen de utilizarse para
+              promociones, seguimiento comercial no necesario o comunicaciones secundarias.
+              La revocación no impedirá que la empresa conserve información cuando sea
+              necesaria para cumplir obligaciones legales, fiscales, administrativas o
+              contractuales.
+            </p>
+
+            <h3>16. Términos de uso del cotizador</h3>
+            <p>
+              El cotizador de Energías Renovables del Norte genera una estimación
+              preliminar basada en los datos ingresados por el usuario. El resultado no
+              constituye una oferta definitiva, contrato, garantía de ahorro ni promesa de
+              instalación.
+            </p>
+            <p>
+              La capacidad sugerida del sistema, número de paneles, generación estimada y
+              ahorro aproximado pueden cambiar después de revisar el recibo CFE completo,
+              tarifa eléctrica, ubicación exacta, orientación, sombras, estructura del
+              techo, materiales, permisos y condiciones eléctricas del inmueble.
+            </p>
+
+            <h3>17. Deslinde de responsabilidad</h3>
+            <p>
+              Energías Renovables del Norte no será responsable por decisiones económicas,
+              comerciales o técnicas tomadas únicamente con base en la estimación generada
+              por esta aplicación. Toda cotización formal requiere validación por personal
+              especializado.
+            </p>
+            <p>
+              La empresa no será responsable si el usuario proporciona información falsa,
+              incompleta, desactualizada o si comparte documentos sobre los cuales no tiene
+              autorización.
+            </p>
+            <p>
+              En esta aplicación académica, los resultados son demostrativos. No se
+              almacenan datos, no se procesan archivos, no se venden productos y no se
+              establece una relación contractual real.
+            </p>
+
+            <h3>18. Responsabilidad del usuario</h3>
+            <p>
+              El usuario se compromete a proporcionar información correcta en un proceso
+              real, no cargar documentos alterados, no compartir datos de terceros sin
+              autorización y revisar el aviso de privacidad antes de enviar información.
+            </p>
+            <p>
+              En esta versión académica, el usuario debe evitar ingresar datos personales
+              reales, recibos verdaderos, documentos oficiales, contraseñas, datos
+              bancarios o cualquier información confidencial.
+            </p>
+
+            <h3>19. Fecha de publicación, actualización y vigencia</h3>
+            <p>
+              Estas políticas fueron publicadas el {fechaPublicacion}, actualizadas por
+              última vez el {fechaActualizacion} y corresponden a la versión{' '}
+              {versionPoliticas}.
+            </p>
+            <p>
+              Su vigencia se mantiene mientras Energías Renovables del Norte no publique
+              una nueva versión. La empresa podrá actualizar estas políticas cuando cambien
+              sus servicios, formularios, proveedores, finalidades de tratamiento, medidas
+              de seguridad, procesos internos o disposiciones legales aplicables.
+            </p>
+            <p>
+              Cuando exista una modificación relevante, la empresa deberá informar el
+              cambio mediante este sitio web, correo electrónico, aviso visible en el
+              formulario o cualquier otro medio de contacto disponible.
             </p>
           </div>
         </section>
