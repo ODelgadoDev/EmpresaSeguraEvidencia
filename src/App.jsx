@@ -1,553 +1,606 @@
+import { useState } from 'react';
+
 function App() {
-  const teamMembers = [
-    {
-      name: 'JESUS ORLANDO DELGADO AZAR',
-      role: 'Estructura, desarrollo web y presentación general',
-    },
-    {
-      name: 'HECTOR ANTONIO TERRAZAS GUEVARA',
-      role: 'Normas, estándares, riesgos y marco técnico',
-    },
-    {
-      name: 'JOSE ANGEL LOPEZ DE SANTIAGO',
-      role: 'Aviso de privacidad, confidencialidad y responsabilidad',
-    },
-  ];
+  const [formData, setFormData] = useState({
+    nombre: '',
+    telefono: '',
+    correo: '',
+    tipoCliente: 'Residencial',
+    ciudad: '',
+    direccion: '',
+    consumo: '',
+    tarifa: '',
+    recibo: '',
+    comentarios: '',
+    avisoPrivacidad: false,
+    confidencialidad: false,
+    deslinde: false,
+  });
+
+  const [resultado, setResultado] = useState(null);
+
+  const handleChange = (event) => {
+    const { name, value, type, checked, files } = event.target;
+
+    if (type === 'file') {
+      setFormData({
+        ...formData,
+        recibo: files[0] ? files[0].name : '',
+      });
+      return;
+    }
+
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  };
+
+  const generarCotizacion = () => {
+    const consumo = Number(formData.consumo);
+
+    if (
+      !formData.nombre ||
+      !formData.telefono ||
+      !formData.correo ||
+      !formData.consumo ||
+      !formData.avisoPrivacidad ||
+      !formData.confidencialidad ||
+      !formData.deslinde
+    ) {
+      alert(
+        'Completa nombre, teléfono, correo, consumo mensual y acepta el aviso de privacidad, confidencialidad y deslinde de responsabilidad.'
+      );
+      return;
+    }
+
+    const sistemaKwNumero = Math.max(consumo / 135, 1);
+    const sistemaKw = sistemaKwNumero.toFixed(1);
+    const paneles = Math.ceil((sistemaKwNumero * 1000) / 550);
+    const generacion = Math.round(sistemaKwNumero * 135);
+    const ahorro = Math.min(Math.round(consumo * 0.65), consumo);
+
+    setResultado({
+      folio: `ERN-${Date.now().toString().slice(-6)}`,
+      sistemaKw,
+      paneles,
+      generacion,
+      ahorro,
+    });
+  };
 
   return (
     <div className="app">
       <header className="navbar">
         <div className="brand">
-          <div className="brand-icon">ES</div>
+          <div className="brand-icon">ERN</div>
           <div>
-            <h1>Empresa Segura</h1>
-            <p>Protección de datos en el sector empresarial</p>
+            <h1>Energías Renovables del Norte</h1>
+            <p>Soluciones solares para hogares, negocios y empresas</p>
           </div>
         </div>
 
         <nav className="menu">
           <a href="#inicio">Inicio</a>
-          <a href="#datos">Datos</a>
-          <a href="#normas">Normas</a>
-          <a href="#privacidad">Privacidad</a>
-          <a href="#confidencialidad">Confidencialidad</a>
-          <a href="#terminos">Términos</a>
-          <a href="#equipo">Equipo</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#cotizador">Cotizar</a>
+          <a href="#recibo">Recibo CFE</a>
+          <a href="#legal">Aviso y deslinde</a>
         </nav>
       </header>
 
       <main>
         <section id="inicio" className="hero">
           <div className="hero-content">
-            <span className="tag">Equipo 3 · Sector empresarial</span>
-            <h2>Manejo seguro de información empresarial</h2>
+            <span className="tag">Energía solar · Ahorro · Sustentabilidad</span>
+            <h2>Instalación y cotización de paneles solares</h2>
             <p>
-              Esta App Web académica presenta leyes, normas, estándares y buenas
-              prácticas relacionadas con la protección de datos personales,
-              confidencialidad, seguridad informática y deslinde de
-              responsabilidad dentro de una empresa.
+              En Energías Renovables del Norte ayudamos a hogares, comercios y empresas
+              a reducir su consumo eléctrico mediante sistemas fotovoltaicos diseñados
+              según su recibo de luz, consumo mensual y necesidades de instalación.
             </p>
 
             <div className="hero-actions">
-              <a href="#normas" className="btn-primary">
-                Ver marco legal
+              <a href="#cotizador" className="btn-primary">
+                Solicitar cotización
               </a>
-              <a href="#privacidad" className="btn-secondary">
+              <a href="#legal" className="btn-secondary">
                 Aviso de privacidad
               </a>
             </div>
           </div>
 
           <div className="hero-card">
-            <h3>Objetivo de la app</h3>
+            <h3>Cotización demo</h3>
             <p>
-              Informar cómo una empresa debe proteger la información de
-              clientes, empleados, proveedores y operaciones internas mediante
-              medidas legales, administrativas y tecnológicas.
+              Esta aplicación permite simular una solicitud de cotización solar y muestra
+              cómo una empresa debe informar el uso, resguardo y confidencialidad de los
+              datos proporcionados por el cliente.
             </p>
           </div>
         </section>
 
-        <section id="datos" className="section">
+        <section id="servicios" className="section">
           <div className="section-header">
             <span className="section-number">01</span>
-            <h2>Información que maneja una empresa</h2>
+            <div>
+              <h2>¿Qué hace la empresa?</h2>
+              <p>
+                Energías Renovables del Norte ofrece soluciones solares para reducir el
+                gasto eléctrico y aprovechar energías limpias.
+              </p>
+            </div>
           </div>
-
-          <p>
-            En el sector empresarial se manejan datos personales, fiscales,
-            financieros, laborales, comerciales y administrativos. Esta
-            información debe protegerse para evitar accesos no autorizados, uso
-            indebido, pérdida de datos, fraudes, robo de identidad o filtraciones
-            internas.
-          </p>
 
           <div className="cards-grid">
             <article className="info-card">
-              <h3>Clientes</h3>
+              <h3>Cotización solar</h3>
               <p>
-                Nombre, teléfono, correo electrónico, domicilio, historial de
-                compras, servicios solicitados, cotizaciones, facturas, pagos y
-                datos de contacto.
+                Analizamos el consumo mensual del cliente para estimar la capacidad del
+                sistema solar, cantidad aproximada de paneles y generación esperada.
               </p>
             </article>
 
             <article className="info-card">
-              <h3>Empleados</h3>
+              <h3>Análisis de recibo CFE</h3>
               <p>
-                Datos de identificación, expediente laboral, puesto, asistencia,
-                nómina, evaluaciones, documentación interna y datos de contacto
-                de emergencia.
+                El recibo de luz permite revisar tarifa, consumo, historial e información
+                necesaria para preparar una propuesta técnica y comercial.
               </p>
             </article>
 
             <article className="info-card">
-              <h3>Proveedores</h3>
+              <h3>Instalación fotovoltaica</h3>
               <p>
-                Razón social, RFC, datos bancarios, correo, teléfono, contratos,
-                órdenes de compra, cotizaciones y condiciones comerciales.
+                En un caso real, el proyecto requiere visita técnica, revisión de techo,
+                orientación, sombras, estructura, cableado y condiciones eléctricas.
               </p>
             </article>
 
             <article className="info-card">
-              <h3>Operaciones internas</h3>
+              <h3>Seguimiento empresarial</h3>
               <p>
-                Reportes administrativos, cuentas por cobrar, cuentas pagadas,
-                contratos, documentos fiscales, inventarios, estrategias y
-                archivos confidenciales.
+                La información del cliente se usa para dar seguimiento a la solicitud,
+                resolver dudas, preparar propuestas y programar atención técnica.
               </p>
             </article>
           </div>
         </section>
 
-        <section id="normas" className="section section-alt">
+        <section id="cotizador" className="section section-alt">
           <div className="section-header">
             <span className="section-number">02</span>
-            <h2>Normas, estándares y leyes aplicables</h2>
+            <div>
+              <h2>Formulario de cotización</h2>
+              <p>
+                Llena la solicitud para generar una cotización preliminar de paneles
+                solares. Esta demo no almacena información real.
+              </p>
+            </div>
           </div>
 
-          <p>
-            Una empresa debe identificar las disposiciones legales y buenas
-            prácticas que regulan el manejo de información. Esto permite definir
-            políticas internas, controles de acceso, medidas de seguridad,
-            avisos de privacidad y responsabilidades para el personal.
-          </p>
+          <div className="app-layout">
+            <form className="quote-form">
+              <div className="form-block">
+                <h3>Datos del solicitante</h3>
+                <p>
+                  Estos datos permiten contactar al cliente, identificar el tipo de
+                  proyecto y dar seguimiento a la solicitud de cotización.
+                </p>
+              </div>
 
-          <div className="law-list">
-            <div>
-              <h3>
-                Ley Federal de Protección de Datos Personales en Posesión de los
-                Particulares
-              </h3>
-              <p>
-                Es la ley principal para empresas privadas en México. Regula el
-                tratamiento legítimo, controlado e informado de los datos
-                personales. Su finalidad es proteger la privacidad y el derecho
-                de las personas a decidir sobre el uso de su información.
-              </p>
-            </div>
+              <label>
+                Nombre completo
+                <input
+                  name="nombre"
+                  type="text"
+                  placeholder="Ej. Juan Pérez"
+                  value={formData.nombre}
+                  onChange={handleChange}
+                />
+              </label>
 
-            <div>
-              <h3>Lineamientos del Aviso de Privacidad</h3>
-              <p>
-                Establecen los elementos que debe contener un aviso de
-                privacidad, como la identidad del responsable, los datos
-                tratados, las finalidades del tratamiento, las transferencias,
-                los medios para ejercer derechos ARCO y el procedimiento para
-                comunicar cambios al aviso.
-              </p>
-            </div>
+              <div className="two-columns">
+                <label>
+                  Teléfono
+                  <input
+                    name="telefono"
+                    type="tel"
+                    placeholder="Ej. 614 000 0000"
+                    value={formData.telefono}
+                    onChange={handleChange}
+                  />
+                </label>
 
-            <div>
-              <h3>Derechos ARCO</h3>
-              <p>
-                Son los derechos de Acceso, Rectificación, Cancelación y
-                Oposición. Permiten que el titular de los datos pueda conocer
-                qué información se tiene sobre él, solicitar correcciones, pedir
-                que se eliminen sus datos cuando corresponda u oponerse a ciertos
-                usos.
-              </p>
-            </div>
+                <label>
+                  Correo electrónico
+                  <input
+                    name="correo"
+                    type="email"
+                    placeholder="cliente@correo.com"
+                    value={formData.correo}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
 
-            <div>
-              <h3>ISO/IEC 27001</h3>
-              <p>
-                Estándar internacional relacionado con la gestión de seguridad
-                de la información. Ayuda a proteger la confidencialidad,
-                integridad y disponibilidad mediante gestión de riesgos,
-                políticas, controles y mejora continua.
-              </p>
-            </div>
+              <div className="two-columns">
+                <label>
+                  Tipo de cliente
+                  <select
+                    name="tipoCliente"
+                    value={formData.tipoCliente}
+                    onChange={handleChange}
+                  >
+                    <option>Residencial</option>
+                    <option>Comercial</option>
+                    <option>Empresarial</option>
+                    <option>Industrial</option>
+                  </select>
+                </label>
 
-            <div>
-              <h3>NIST Cybersecurity Framework 2.0</h3>
-              <p>
-                Marco de referencia para gestionar riesgos de ciberseguridad.
-                Sus funciones principales son gobernar, identificar, proteger,
-                detectar, responder y recuperar. En una empresa ayuda a ordenar
-                controles y planes de acción ante incidentes.
-              </p>
-            </div>
+                <label>
+                  Ciudad o zona
+                  <input
+                    name="ciudad"
+                    type="text"
+                    placeholder="Ej. Chihuahua, Chih."
+                    value={formData.ciudad}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
 
-            <div>
-              <h3>OWASP Top 10</h3>
-              <p>
-                Documento de concientización sobre los riesgos más críticos en
-                aplicaciones web. Es útil para revisar amenazas como control de
-                acceso roto, fallas de autenticación, inyección de código,
-                exposición de datos y configuraciones inseguras.
-              </p>
-            </div>
+              <label>
+                Dirección aproximada de instalación
+                <input
+                  name="direccion"
+                  type="text"
+                  placeholder="Colonia, ciudad o referencia general"
+                  value={formData.direccion}
+                  onChange={handleChange}
+                />
+              </label>
+
+              <div className="form-block">
+                <h3>Información energética</h3>
+                <p>
+                  El consumo mensual y la tarifa ayudan a estimar de forma preliminar el
+                  tamaño del sistema solar.
+                </p>
+              </div>
+
+              <div className="two-columns">
+                <label>
+                  Consumo mensual aproximado en kWh
+                  <input
+                    name="consumo"
+                    type="number"
+                    placeholder="Ej. 850"
+                    value={formData.consumo}
+                    onChange={handleChange}
+                  />
+                </label>
+
+                <label>
+                  Tarifa, si se conoce
+                  <input
+                    name="tarifa"
+                    type="text"
+                    placeholder="Ej. 1C, DAC, PDBT, GDMTO"
+                    value={formData.tarifa}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
+
+              <div id="recibo" className="upload-box">
+                <h3>Subir recibo CFE demo</h3>
+                <p>
+                  Adjunta un recibo de luz en PDF, PNG o JPG. En esta aplicación
+                  académica el archivo no se sube a ningún servidor; solo se muestra su
+                  nombre para simular el proceso empresarial.
+                </p>
+
+                <input
+                  name="recibo"
+                  type="file"
+                  accept=".pdf,.png,.jpg,.jpeg"
+                  onChange={handleChange}
+                />
+
+                {formData.recibo && (
+                  <div className="file-alert">
+                    Archivo seleccionado: <strong>{formData.recibo}</strong>
+                    <br />
+                    Demo local: el archivo no se procesa ni se almacena.
+                  </div>
+                )}
+              </div>
+
+              <label>
+                Comentarios del proyecto
+                <textarea
+                  name="comentarios"
+                  placeholder="Ej. Me interesa reducir mi recibo de luz y conocer cuántos paneles necesito."
+                  value={formData.comentarios}
+                  onChange={handleChange}
+                ></textarea>
+              </label>
+
+              <div className="legal-checks">
+                <label className="checkbox">
+                  <input
+                    name="avisoPrivacidad"
+                    type="checkbox"
+                    checked={formData.avisoPrivacidad}
+                    onChange={handleChange}
+                  />
+                  Acepto el aviso de privacidad y autorizo el uso de mis datos para
+                  elaborar una cotización.
+                </label>
+
+                <label className="checkbox">
+                  <input
+                    name="confidencialidad"
+                    type="checkbox"
+                    checked={formData.confidencialidad}
+                    onChange={handleChange}
+                  />
+                  Reconozco que mi recibo CFE puede contener información personal,
+                  domiciliaria y de consumo eléctrico.
+                </label>
+
+                <label className="checkbox">
+                  <input
+                    name="deslinde"
+                    type="checkbox"
+                    checked={formData.deslinde}
+                    onChange={handleChange}
+                  />
+                  Acepto que esta cotización es preliminar y que requiere validación
+                  técnica para ser considerada formal.
+                </label>
+              </div>
+
+              <button type="button" onClick={generarCotizacion}>
+                Generar cotización preliminar
+              </button>
+
+              <a href="#legal" className="legal-link">
+                Consultar aviso de privacidad, confidencialidad y deslinde
+              </a>
+            </form>
+
+            <aside className="quote-panel">
+              <span className="panel-label">Resultado</span>
+              <h3>Cotización preliminar</h3>
+
+              {!resultado ? (
+                <p>
+                  Completa el formulario para generar una estimación. El cálculo es
+                  demostrativo y no sustituye una visita técnica.
+                </p>
+              ) : (
+                <div className="quote-result">
+                  <span className="folio">{resultado.folio}</span>
+
+                  <div>
+                    <small>Sistema sugerido aproximado</small>
+                    <p className="big-number">{resultado.sistemaKw} kW</p>
+                  </div>
+
+                  <div className="result-row">
+                    <span>Paneles aproximados de 550 W</span>
+                    <strong>{resultado.paneles}</strong>
+                  </div>
+
+                  <div className="result-row">
+                    <span>Generación estimada</span>
+                    <strong>{resultado.generacion} kWh/mes</strong>
+                  </div>
+
+                  <div className="result-row">
+                    <span>Ahorro energético estimado</span>
+                    <strong>{resultado.ahorro} kWh/mes</strong>
+                  </div>
+
+                  <div className="quote-warning">
+                    Para una propuesta formal se requiere analizar el recibo CFE, tarifa,
+                    ubicación exacta, orientación, sombras, estructura y condiciones de
+                    instalación.
+                  </div>
+                </div>
+              )}
+            </aside>
           </div>
         </section>
 
-        <section id="privacidad" className="section">
+        <section className="section">
           <div className="section-header">
             <span className="section-number">03</span>
-            <h2>Aviso de privacidad empresarial</h2>
+            <div>
+              <h2>Uso de datos y recibo CFE</h2>
+              <p>
+                La información solicitada tiene una finalidad empresarial relacionada con
+                la cotización solar.
+              </p>
+            </div>
           </div>
 
-          <div className="text-box">
-            <h3>Identidad del responsable</h3>
+          <div className="cards-grid">
+            <article className="info-card">
+              <h3>Datos de contacto</h3>
+              <p>
+                Nombre, teléfono y correo se usan para contactar al solicitante, enviar la
+                cotización, resolver dudas y dar seguimiento comercial.
+              </p>
+            </article>
+
+            <article className="info-card">
+              <h3>Ubicación</h3>
+              <p>
+                La ciudad o dirección aproximada ayuda a revisar cobertura, viabilidad de
+                instalación, condiciones del inmueble y zona de atención.
+              </p>
+            </article>
+
+            <article className="info-card">
+              <h3>Consumo eléctrico</h3>
+              <p>
+                El consumo mensual en kWh permite estimar la capacidad del sistema solar,
+                cantidad aproximada de paneles y ahorro energético.
+              </p>
+            </article>
+
+            <article className="info-card">
+              <h3>Recibo CFE</h3>
+              <p>
+                Puede contener domicilio, número de servicio, tarifa, historial de consumo,
+                importes de pago y datos del titular del contrato eléctrico.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="legal" className="section section-alt">
+          <div className="section-header">
+            <span className="section-number">04</span>
+            <div>
+              <h2>Aviso de privacidad, confidencialidad y deslinde</h2>
+              <p>
+                Información legal y de seguridad para el tratamiento de datos en Energías
+                Renovables del Norte.
+              </p>
+            </div>
+          </div>
+
+          <div className="legal-box">
+            <h3>Aviso de privacidad</h3>
             <p>
-              Empresa Segura es una App Web desarrollada con fines académicos.
-              Para efectos demostrativos, representa a una empresa que trata
-              información de clientes, empleados, proveedores y contactos
-              comerciales. Esta aplicación no pertenece a una empresa real y no
-              debe utilizarse para capturar información verdadera.
+              Energías Renovables del Norte, como empresa dedicada a la asesoría,
+              cotización e instalación de sistemas de paneles solares, informa que los
+              datos proporcionados por el usuario serán utilizados para atender solicitudes
+              de cotización, analizar consumo eléctrico, preparar propuestas comerciales,
+              contactar al solicitante y dar seguimiento al proyecto.
             </p>
 
-            <h3>Datos personales que podrían tratarse en una empresa</h3>
             <p>
-              Una empresa puede tratar datos de identificación como nombre,
-              domicilio, teléfono, correo electrónico, RFC, CURP en algunos
-              procesos, datos de facturación, datos laborales, puesto, área,
-              documentos administrativos, contratos, pagos, historial de compras
-              y comunicación comercial.
+              Los datos que podrían recabarse incluyen nombre, teléfono, correo
+              electrónico, ciudad, dirección aproximada, tipo de cliente, consumo mensual,
+              tarifa eléctrica, comentarios del proyecto y documentos relacionados con el
+              servicio eléctrico, como el recibo de luz CFE.
+            </p>
+
+            <p>
+              En caso de avanzar a una contratación real, también podrían solicitarse datos
+              fiscales como razón social, RFC, domicilio fiscal, información de facturación
+              y documentación administrativa necesaria para la prestación del servicio.
             </p>
 
             <h3>Finalidades del tratamiento</h3>
             <p>
-              Los datos personales podrían utilizarse para atención a clientes,
-              elaboración de cotizaciones, facturación, seguimiento de pagos,
-              administración de proveedores, control interno, prestación de
-              servicios, gestión de personal, cumplimiento de obligaciones
-              contractuales, fiscales, laborales y administrativas.
+              Los datos personales se utilizarían para elaborar una cotización preliminar,
+              dimensionar el sistema fotovoltaico, estimar número de paneles solares,
+              calcular generación aproximada, programar visitas técnicas, preparar una
+              propuesta formal, contactar al cliente y dar seguimiento administrativo o
+              comercial.
             </p>
 
-            <h3>Medidas de seguridad</h3>
+            <h3>Uso del recibo CFE</h3>
             <p>
-              La información debe protegerse mediante medidas administrativas,
-              técnicas y físicas. Entre ellas se encuentran políticas internas,
-              capacitación del personal, contraseñas seguras, control de accesos,
-              respaldos, cifrado, antivirus, bitácoras de actividad, resguardo de
-              documentos físicos y eliminación segura de información.
+              El recibo CFE puede ser utilizado para revisar tarifa, historial de consumo,
+              importe del servicio, número de servicio, domicilio de instalación y datos
+              del titular. Esta información es necesaria para realizar un análisis más
+              preciso del proyecto solar, pero debe manejarse con confidencialidad.
             </p>
 
-            <h3>Derechos ARCO</h3>
+            <h3>Confidencialidad de la información</h3>
             <p>
-              El titular de los datos puede solicitar acceso a sus datos,
-              rectificación en caso de errores, cancelación cuando proceda y
-              oposición a ciertos tratamientos. En un caso real, la empresa debe
-              proporcionar medios claros para ejercer estos derechos.
-            </p>
-
-            <h3>Transferencias de información</h3>
-            <p>
-              En una empresa, cierta información puede compartirse con
-              autoridades fiscales, proveedores de servicios, bancos,
-              despachos contables o plataformas tecnológicas, siempre que exista
-              una finalidad legítima y se respeten las obligaciones legales de
-              protección de datos.
-            </p>
-
-            <h3>Cambios al aviso de privacidad</h3>
-            <p>
-              Cualquier cambio al aviso de privacidad debe comunicarse por medios
-              accesibles para los titulares de los datos. En un entorno real,
-              esto puede hacerse mediante sitio web oficial, correo electrónico,
-              publicación interna o medios de contacto establecidos por la
-              empresa.
-            </p>
-          </div>
-        </section>
-
-        <section id="confidencialidad" className="section section-alt">
-          <div className="section-header">
-            <span className="section-number">04</span>
-            <h2>Confidencialidad de la información</h2>
-          </div>
-
-          <div className="text-box">
-            <p>
-              Toda información empresarial que contenga datos personales,
-              fiscales, financieros, comerciales, laborales o estratégicos debe
-              considerarse confidencial. Esto significa que no puede consultarse,
-              modificarse, compartirse o eliminarse sin autorización.
+              La información proporcionada por el cliente será considerada confidencial. No
+              deberá compartirse, venderse, publicarse, modificarse o utilizarse para
+              finalidades distintas a la cotización sin autorización del titular o sin una
+              causa legal aplicable.
             </p>
 
             <p>
-              El acceso a la información debe limitarse únicamente al personal
-              autorizado, aplicando el principio de mínimo privilegio. Cada
-              empleado debe consultar solo la información necesaria para cumplir
-              sus actividades laborales.
-            </p>
-
-            <p>
-              La confidencialidad debe mantenerse durante y después de la
-              relación laboral, comercial o contractual. Por ello, una empresa
-              puede apoyarse en acuerdos de confidencialidad, reglamentos
-              internos, políticas de seguridad y controles tecnológicos.
+              El acceso deberá limitarse únicamente a personal autorizado, como asesores
+              comerciales, técnicos de instalación, personal administrativo, facturación o
+              dirección. Cada persona deberá acceder solo a la información necesaria para
+              cumplir su función.
             </p>
 
             <div className="mini-grid">
               <article>
-                <h3>Controles administrativos</h3>
+                <h3>Medidas administrativas</h3>
                 <p>
-                  Políticas internas, capacitación, asignación de
-                  responsabilidades, acuerdos de confidencialidad y procedimientos
-                  de atención a incidentes.
+                  Políticas internas, capacitación, acuerdos de confidencialidad,
+                  autorización de accesos y procedimientos para atender solicitudes de los
+                  titulares.
                 </p>
               </article>
 
               <article>
-                <h3>Controles técnicos</h3>
+                <h3>Medidas técnicas</h3>
                 <p>
-                  Contraseñas seguras, autenticación, cifrado, respaldos,
-                  permisos por rol, firewalls, antivirus y registro de accesos.
+                  Contraseñas seguras, cifrado, permisos por rol, respaldos, antivirus,
+                  bitácoras de acceso y protección contra accesos no autorizados.
                 </p>
               </article>
 
               <article>
-                <h3>Controles físicos</h3>
+                <h3>Medidas físicas</h3>
                 <p>
-                  Resguardo de expedientes, acceso controlado a oficinas,
-                  protección de equipos, destrucción segura de documentos y
-                  almacenamiento bajo llave.
+                  Resguardo de documentos, control de acceso a oficinas, protección de
+                  equipos, almacenamiento bajo llave y destrucción segura de información.
                 </p>
               </article>
             </div>
-          </div>
-        </section>
 
-        <section id="terminos" className="section">
-          <div className="section-header">
-            <span className="section-number">05</span>
-            <h2>Términos de uso y deslinde de responsabilidad</h2>
-          </div>
-
-          <div className="text-box warning">
-            <h3>Uso académico</h3>
+            <h3>Derechos del titular</h3>
             <p>
-              Esta App Web fue desarrollada únicamente con fines educativos para
-              la materia de Seguridad Informática. Su objetivo es mostrar cómo
-              una empresa puede informar sobre el tratamiento, protección,
-              confidencialidad y manejo responsable de la información.
+              El titular de los datos podrá solicitar acceso, rectificación, cancelación u
+              oposición respecto al tratamiento de su información personal. En un entorno
+              real, la empresa debe proporcionar medios claros para ejercer estos derechos,
+              como correo electrónico, oficina de atención o formulario oficial.
             </p>
 
-            <h3>No sustituye asesoría profesional</h3>
+            <h3>Transferencias de información</h3>
             <p>
-              La información presentada no sustituye asesoría legal, fiscal,
-              contable, laboral, administrativa ni de especialistas en protección
-              de datos o ciberseguridad. Para casos reales, una empresa debe
-              consultar legislación vigente y asesorarse con personal
-              especializado.
+              La información solo podría compartirse con terceros cuando sea necesario para
+              atender la solicitud del cliente, por ejemplo, proveedores autorizados,
+              técnicos de instalación, áreas de facturación, entidades de financiamiento o
+              autoridades competentes, siempre bajo medidas de confidencialidad.
             </p>
 
-            <h3>No captura datos reales</h3>
+            <h3>Deslinde de responsabilidad</h3>
             <p>
-              El formulario de esta aplicación es solamente demostrativo. No se
-              deben ingresar nombres reales, teléfonos, correos, RFC, datos
-              bancarios, datos laborales, documentos, contraseñas ni información
-              confidencial verdadera.
-            </p>
-
-            <h3>Limitación de responsabilidad</h3>
-            <p>
-              Los desarrolladores de esta App Web no se hacen responsables por el
-              uso indebido de la información presentada ni por la captura de datos
-              reales por parte de terceros. La aplicación no almacena información
-              y no realiza trámites oficiales.
-            </p>
-
-            <h3>Responsabilidad del usuario</h3>
-            <p>
-              El usuario se compromete a utilizar esta aplicación únicamente con
-              fines académicos, ingresando datos ficticios y respetando las
-              indicaciones relacionadas con privacidad, confidencialidad y
-              seguridad de la información.
-            </p>
-          </div>
-        </section>
-
-        <section id="riesgos" className="section section-alt">
-          <div className="section-header">
-            <span className="section-number">06</span>
-            <h2>Riesgos de un mal manejo de información</h2>
-          </div>
-
-          <div className="risk-grid">
-            <article>
-              <h3>Robo de identidad</h3>
-              <p>
-                Puede ocurrir cuando datos como nombre, RFC, domicilio o correo
-                son utilizados por terceros para hacerse pasar por una persona.
-              </p>
-            </article>
-
-            <article>
-              <h3>Fraude financiero</h3>
-              <p>
-                La exposición de datos bancarios, facturación o pagos puede
-                facilitar fraudes, cargos no reconocidos o engaños comerciales.
-              </p>
-            </article>
-
-            <article>
-              <h3>Pérdida de confianza</h3>
-              <p>
-                Una fuga de información puede afectar la reputación de la empresa
-                y la relación con clientes, empleados y proveedores.
-              </p>
-            </article>
-
-            <article>
-              <h3>Sanciones legales</h3>
-              <p>
-                El incumplimiento de obligaciones de privacidad y seguridad puede
-                provocar consecuencias legales, económicas o administrativas.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section id="formulario" className="section">
-          <div className="section-header">
-            <span className="section-number">07</span>
-            <h2>Formulario demo empresarial</h2>
-          </div>
-
-          <form className="demo-form">
-            <label>
-              Nombre del cliente
-              <input type="text" placeholder="Ej. Cliente Demo" />
-            </label>
-
-            <label>
-              Correo electrónico
-              <input type="email" placeholder="cliente@ejemplo.com" />
-            </label>
-
-            <label>
-              Empresa
-              <input type="text" placeholder="Empresa ficticia S.A. de C.V." />
-            </label>
-
-            <label>
-              RFC ficticio
-              <input type="text" placeholder="XAXX010101000" />
-            </label>
-
-            <label>
-              Servicio solicitado
-              <select>
-                <option>Cotización</option>
-                <option>Facturación</option>
-                <option>Soporte</option>
-                <option>Seguimiento de pago</option>
-                <option>Alta de proveedor</option>
-              </select>
-            </label>
-
-            <label>
-              Comentarios
-              <textarea placeholder="Escribe un comentario ficticio"></textarea>
-            </label>
-
-            <label className="checkbox">
-              <input type="checkbox" />
-              Acepto el aviso de privacidad y confirmo que estoy usando datos
-              ficticios.
-            </label>
-
-            <button type="button">Enviar simulación</button>
-
-            <p className="form-note">
-              Importante: este formulario es únicamente demostrativo. No ingreses
-              información personal real, contraseñas, datos bancarios ni
-              documentos confidenciales.
-            </p>
-          </form>
-        </section>
-
-        <section id="equipo" className="section section-alt">
-          <div className="section-header">
-            <span className="section-number">08</span>
-            <h2>Miembros del equipo</h2>
-          </div>
-
-          <p>
-            Esta App Web fue desarrollada por el Equipo 3 para representar el
-            manejo seguro de información en el sector empresarial.
-          </p>
-
-          <div className="team-grid">
-            {teamMembers.map((member) => (
-              <article className="team-card" key={member.name}>
-                <div className="avatar">{member.name.charAt(0)}</div>
-                <h3>{member.name}</h3>
-                <p>{member.role}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="referencias" className="section">
-          <div className="section-header">
-            <span className="section-number">09</span>
-            <h2>Referencias consultadas</h2>
-          </div>
-
-          <div className="references">
-            <p>
-              Cámara de Diputados. Ley Federal de Protección de Datos Personales
-              en Posesión de los Particulares.
-              https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+              Esta aplicación es una demostración académica. No representa una contratación
+              real, no almacena información, no procesa archivos y no genera una oferta
+              comercial vinculante. La cotización mostrada es aproximada y debe validarse
+              mediante revisión técnica profesional.
             </p>
 
             <p>
-              Diario Oficial de la Federación. Lineamientos del Aviso de
-              Privacidad.
-              https://sidof.segob.gob.mx/notas/docFuente/5284966
+              El usuario es responsable de proporcionar información correcta en un proceso
+              real y de contar con autorización para compartir recibos de luz o documentos
+              relacionados con el inmueble. En esta demo no se deben ingresar datos
+              personales reales ni subir documentos verdaderos.
             </p>
 
             <p>
-              INAI. Guías para titulares y ejercicio de derechos ARCO.
-              https://home.inai.org.mx/?page_id=3402
-            </p>
-
-            <p>
-              ISO. ISO/IEC 27001:2022 Information Security Management Systems.
-              https://www.iso.org/standard/27001
-            </p>
-
-            <p>
-              NIST. Cybersecurity Framework 2.0.
-              https://www.nist.gov/cyberframework
-            </p>
-
-            <p>
-              OWASP Foundation. OWASP Top 10 Web Application Security Risks.
-              https://owasp.org/projects/top-ten
+              Energías Renovables del Norte no será responsable por decisiones económicas,
+              comerciales o técnicas tomadas con base en los resultados simulados de esta
+              aplicación. Para una cotización formal se requiere revisión técnica,
+              condiciones de instalación, tarifa eléctrica, ubicación exacta, materiales,
+              permisos y evaluación especializada.
             </p>
           </div>
         </section>
       </main>
 
       <footer className="footer">
-        <p>
-          Empresa Segura · Equipo 3 · Sector empresarial · Seguridad Informática
-        </p>
+        <p>Energías Renovables del Norte · Cotización solar y manejo responsable de información</p>
       </footer>
     </div>
   );
